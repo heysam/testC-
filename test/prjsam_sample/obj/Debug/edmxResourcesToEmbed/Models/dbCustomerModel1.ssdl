@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbCustomerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'Y:\DOCUMENTS\YUNGCHING\TEST_YUNGCHING\PRJSAM_SAMPLE\APP_DATA\DBCUSTOMER.MDF.dbo.dbCustomer' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="dbCustomer">
+    <Key>
+      <PropertyRef Name="fCustId" />
+    </Key>
+    <Property Name="fCustId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fName" Type="nvarchar" MaxLength="50" />
+    <Property Name="fPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="fAddress" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="dbCustomerModelStoreContainer">
+    <EntitySet Name="dbCustomer" EntityType="Self.dbCustomer" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [dbCustomer].[fCustId] AS [fCustId], 
+    [dbCustomer].[fName] AS [fName], 
+    [dbCustomer].[fPhone] AS [fPhone], 
+    [dbCustomer].[fAddress] AS [fAddress]
+    FROM [dbo].[dbCustomer] AS [dbCustomer]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
